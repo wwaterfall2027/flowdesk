@@ -253,10 +253,10 @@
   },
   "ai": {
     "text": null,
-    "note": "model error: Unexpected token 'O', \"OK\r\n\" is not valid JSON"
+    "note": "model returned non-JSON (HTTP 200): OK\r\n"
   },
   "sourceErrors": [],
-  "generatedAt": "2026-11-13T05:09:38.912Z",
+  "generatedAt": "2026-11-13T05:10:59.286Z",
   "raw": {
     "fomc": {
       "rate_ranges": [
