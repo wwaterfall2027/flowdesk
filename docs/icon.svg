@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="FlowDesk">
+  <rect width="64" height="64" rx="14" fill="#4f46e5"/>
+  <path d="M10 40 C 20 40, 22 22, 32 22 S 44 34, 54 18" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="54" cy="18" r="4.5" fill="#34d399"/>
+  <rect x="12" y="46" width="6" height="8" rx="1.5" fill="#c7d2fe"/>
+  <rect x="22" y="42" width="6" height="12" rx="1.5" fill="#c7d2fe"/>
+  <rect x="32" y="44" width="6" height="10" rx="1.5" fill="#c7d2fe"/>
+  <rect x="42" y="38" width="6" height="16" rx="1.5" fill="#c7d2fe"/>
+</svg>

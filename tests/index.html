@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>FlowDesk tests</title>
+<style>body{font:14px/1.5 system-ui,sans-serif;margin:24px;background:#fff;color:#111}.ok{color:#0a7a3d}.bad{color:#b42318}</style></head>
+<body><h1>FlowDesk signal tests</h1><p id="sum">Running…</p><ul id="list"></ul>
+<script type="module">
+  import { run } from './signals.test.js';
+  const r = run(); const pass = r.filter((x) => x.ok).length;
+  document.getElementById('sum').textContent = `${pass}/${r.length} passing`;
+  document.getElementById('list').innerHTML = r.map((x) => `<li class="${x.ok ? 'ok' : 'bad'}">${x.ok ? '✓' : '✗'} ${x.name}${x.ok ? '' : ' — ' + x.err}</li>`).join('');
+  window.__results = r; document.body.dataset.done = '1';
+</script></body></html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FlowDesk: the daily crypto flows desk</title>
+<meta name="description" content="A one-person research desk run by an agent: daily crypto ETF flows, Fed rate odds and corporate BTC buying from SoSoValue, turned into explained signals.">
+<link rel="alternate" type="application/rss+xml" title="FlowDesk daily brief" href="feed.xml">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<style>
+  :root {
+    --bg: #f6f7fb; --surface: #ffffff; --surface2: #eef1f7; --ink: #0f172a; --muted: #5b6475; --line: #e2e6ef;
+    --up: #0f8a5f; --down: #c2412d; --flat: #6b7280; --accent: #4f46e5; --warn: #b45309; --warnbg: #fff7e6;
+    --shadow: 0 1px 2px rgba(15,23,42,.05), 0 8px 24px rgba(15,23,42,.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b1020; --surface: #121a2e; --surface2: #18223a; --ink: #e8edf7; --muted: #9aa6bd; --line: #24304a;
+      --up: #34d399; --down: #f87171; --flat: #9ca3af; --accent: #818cf8; --warn: #fbbf24; --warnbg: #2a2110; --shadow: none;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 1080px; margin: 0 auto; padding: 20px 16px 64px; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 20px; }
+  .brand img { width: 32px; height: 32px; }
+  .muted { color: var(--muted); } .small { font-size: 13px; }
+  a { color: var(--accent); }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; box-shadow: var(--shadow); }
+  h1 { font-size: clamp(22px, 3.6vw, 32px); line-height: 1.2; margin: 18px 0 6px; letter-spacing: -.01em; }
+  h2 { font-size: 18px; margin: 30px 0 10px; }
+  .warn { background: var(--warnbg); color: var(--warn); border: 1px solid currentColor; border-radius: 10px; padding: 10px 12px; font-weight: 600; font-size: 14px; margin: 12px 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .view .sym { font-weight: 800; font-size: 20px; }
+  .stance { font-weight: 700; }
+  .up { color: var(--up); } .down { color: var(--down); } .flat { color: var(--flat); }
+  .meter { position: relative; height: 8px; border-radius: 999px; background: linear-gradient(90deg, var(--down), var(--surface2) 50%, var(--up)); margin: 10px 0 4px; }
+  .meter i { position: absolute; top: -4px; width: 4px; height: 16px; border-radius: 2px; background: var(--ink); transform: translateX(-2px); }
+  .pill { display: inline-block; font-size: 12px; font-weight: 700; padding: 1px 8px; border-radius: 999px; background: var(--surface2); color: var(--muted); }
+  ul.reasons { margin: 8px 0 0; padding-left: 18px; } ul.reasons li { margin: 4px 0; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 760px) { .two { grid-template-columns: 1fr; } }
+  .ai { border-left: 4px solid var(--accent); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  td, th { text-align: left; padding: 8px 6px; border-top: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; border-top: 0; font-size: 13px; }
+  .tablewrap { overflow-x: auto; }
+  .kpis { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 8px; }
+  .kpis b { display: block; font-size: 20px; font-variant-numeric: tabular-nums; }
+  footer { margin-top: 40px; font-size: 13px; color: var(--muted); }
+  code { font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="brand"><img src="icon.svg" alt="">FlowDesk</div>
+    <div class="small muted">A daily crypto flows desk run by an agent · data: <a href="https://sosovalue.com" target="_blank" rel="noopener">SoSoValue</a> · <a href="feed.xml">RSS</a></div>
+  </header>
+
+  <p class="muted small" id="asof">Loading today's brief…</p>
+  <h1 id="headline"></h1>
+  <div id="sampleBanner"></div>
+  <div class="kpis" id="kpis"></div>
+
+  <div class="card ai" id="aiCard" style="margin-top:16px"></div>
+
+  <h2>Desk view</h2>
+  <div class="grid" id="views"></div>
+
+  <h2>Why: ETF flows</h2>
+  <div class="grid" id="etf"></div>
+
+  <div class="two" style="margin-top:12px">
+    <div class="card"><h3 style="margin:0 0 6px">Fed rate odds</h3><div id="fomc"></div></div>
+    <div class="card"><h3 style="margin:0 0 6px">Corporate BTC buying</h3><div id="treasury"></div></div>
+  </div>
+
+  <h2>What the news is talking about</h2>
+  <div class="card tablewrap"><table id="news"></table></div>
+
+  <h2>Before you use this</h2>
+  <div class="card"><ul class="reasons" id="risks"></ul></div>
+
+  <h2>How the desk scores</h2>
+  <div class="card small" id="method"></div>
+
+  <h2>Past briefs</h2>
+  <div class="card tablewrap"><table id="history"></table></div>
+
+  <footer>
+    FlowDesk is open source: <a href="https://github.com/wwaterfall2027/flowdesk">code, tests and the agent</a>. It runs once a day in GitHub Actions, pulls SoSoValue data, scores it with fixed published rules, and lets a model write a short summary only if every number in it appears in the data. Not investment advice.
+  </footer>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
