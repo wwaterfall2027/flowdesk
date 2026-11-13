@@ -1,1 +1,294 @@
-{"asOf":"2026-11-13","sourceMode":"sample","headline":"ETH ETFs: leaning outflows (-$238.0M on 2026-11-12). Easing odds up.","market":{"capUsd":3412000000000,"capChangePct":1.8,"volume24h":118000000000},"views":[{"symbol":"BTC","score":2,"stance":"Constructive","confidence":"high","drivers":[{"kind":"etf","label":"Strong inflows","score":2},{"kind":"fomc","label":"Easing odds up","score":1},{"kind":"treasury","label":"Corporate buying","score":1}]},{"symbol":"ETH","score":-0.5,"stance":"Neutral","confidence":"high","drivers":[{"kind":"etf","label":"Leaning outflows","score":-1},{"kind":"fomc","label":"Easing odds up","score":1}]},{"symbol":"SOL","score":0.5,"stance":"Neutral","confidence":"medium","drivers":[{"kind":"etf","label":"Neutral flows","score":0},{"kind":"fomc","label":"Easing odds up","score":1}]},{"symbol":"XRP","score":0.5,"stance":"Neutral","confidence":"medium","drivers":[{"kind":"etf","label":"Neutral flows","score":0},{"kind":"fomc","label":"Easing odds up","score":1}]}],"etf":[{"kind":"etf","symbol":"BTC","score":2,"confidence":"high","label":"Strong inflows","reasons":["Latest day (2026-11-12) net inflow of $912.0M is 5.1 standard deviations above the prior 20-day average: unusually strong.","Last 5 trading days: $2.09B net.","5 inflow days in a row.","That day moved 0.63% of total ETF assets."],"facts":{"lastDate":"2026-11-12","lastFlow":912000000,"z":5.06,"sum5":2086225883,"streak":5,"flowPctAssets":0.6308422969641929,"days":31}},{"kind":"etf","symbol":"ETH","score":-1,"confidence":"high","label":"Leaning outflows","reasons":["Latest day (2026-11-12) net outflow of $238.0M is 5.8 standard deviations below the prior 20-day average: unusually weak.","Last 5 trading days: -$206.1M net.","That day moved -1.05% of total ETF assets."],"facts":{"lastDate":"2026-11-12","lastFlow":-238000000,"z":-5.8,"sum5":-206147299,"streak":-2,"flowPctAssets":-1.049128873952415,"days":31}},{"kind":"etf","symbol":"SOL","score":0,"confidence":"medium","label":"Neutral flows","reasons":["Latest day (2026-11-12) net inflow of $4.0M, within the normal range (z = 0.4).","Last 5 trading days: $11.3M net."],"facts":{"lastDate":"2026-11-12","lastFlow":4000000,"z":0.4,"sum5":11348932,"streak":1,"flowPctAssets":0.3216587095619657,"days":31}},{"kind":"etf","symbol":"XRP","score":0,"confidence":"medium","label":"Neutral flows","reasons":["Latest day (2026-11-12) net inflow of $1.0M, within the normal range (z = 0.0).","Last 5 trading days: $4.4M net."],"facts":{"lastDate":"2026-11-12","lastFlow":1000000,"z":0.03,"sum5":4423928,"streak":2,"flowPctAssets":0.16099039047232339,"days":31}}],"fomc":{"kind":"fomc","score":1,"confidence":"medium","label":"Easing odds up","reasons":["Market-implied target rate for the 2026-12-09 FOMC meeting: 3.66%.","Since the last run, expectations moved toward more easing by 5.7 basis points."],"facts":{"meeting":"2026-12-09","expectedBps":365.5,"deltaBps":-5.7}},"treasury":{"kind":"treasury","symbol":"BTC","score":1,"confidence":"medium","label":"Corporate buying","reasons":["2 tracked companies (MSTR, MARA) bought 5,100 BTC for $511.0M in the last 7 days."],"facts":{"btc":5100,"usd":511000000,"buyers":["MSTR","MARA"]}},"attention":{"counts":{"BTC":1,"ETH":1,"SOL":1,"XRP":0},"headlines":{"BTC":[{"title":"Sample: BTC spot ETFs log their largest inflow day this month","link":"https://sosovalue.com/","time":1794590000000}],"ETH":[{"title":"Sample: ETH ETFs see a second day of redemptions","link":"https://sosovalue.com/","time":1794580000000}],"SOL":[{"title":"Sample: SOL ETF volumes stay muted","link":"https://sosovalue.com/","time":1794560000000}],"XRP":[]}},"risks":["SAMPLE DATA: this brief was built from example data, not live SoSoValue data.","Signals describe flows and expectations, not prices. They are not investment advice."],"method":{"weights":{"etf":1,"fomc":0.5,"treasury":0.5},"etfZ":"latest day vs prior 20 trading days","streak":"3+ same-sign days add 1 point","fomcThresholdBps":5,"treasuryThresholdBtc":5000},"ai":{"text":null,"note":"AI brief runs in GitHub Actions (not run for this local preview)"},"sourceErrors":[],"generatedAt":"2026-11-13T02:30:00.000Z","raw":{"fomc":{"rate_ranges":["300-325","325-350","350-375","375-400","400-425"],"meetings":[{"meeting_date":"2026-12-09","probabilities":["0.0","12.4","63.1","24.5","0.0"]},{"meeting_date":"2027-01-27","probabilities":["8.2","41.0","40.3","10.5","0.0"]}],"as_of":1794600000000}}}
+{
+  "asOf": "2026-11-13",
+  "sourceMode": "sample",
+  "headline": "ETH ETFs: leaning outflows (-$238.0M on 2026-11-12). Easing odds up.",
+  "market": {
+    "capUsd": 3412000000000,
+    "capChangePct": 1.8,
+    "volume24h": 118000000000
+  },
+  "views": [
+    {
+      "symbol": "BTC",
+      "score": 2,
+      "stance": "Constructive",
+      "confidence": "high",
+      "drivers": [
+        {
+          "kind": "etf",
+          "label": "Strong inflows",
+          "score": 2
+        },
+        {
+          "kind": "fomc",
+          "label": "Easing odds up",
+          "score": 1
+        },
+        {
+          "kind": "treasury",
+          "label": "Corporate buying",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "symbol": "ETH",
+      "score": -0.5,
+      "stance": "Neutral",
+      "confidence": "high",
+      "drivers": [
+        {
+          "kind": "etf",
+          "label": "Leaning outflows",
+          "score": -1
+        },
+        {
+          "kind": "fomc",
+          "label": "Easing odds up",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "symbol": "SOL",
+      "score": 0.5,
+      "stance": "Neutral",
+      "confidence": "medium",
+      "drivers": [
+        {
+          "kind": "etf",
+          "label": "Neutral flows",
+          "score": 0
+        },
+        {
+          "kind": "fomc",
+          "label": "Easing odds up",
+          "score": 1
+        }
+      ]
+    },
+    {
+      "symbol": "XRP",
+      "score": 0.5,
+      "stance": "Neutral",
+      "confidence": "medium",
+      "drivers": [
+        {
+          "kind": "etf",
+          "label": "Neutral flows",
+          "score": 0
+        },
+        {
+          "kind": "fomc",
+          "label": "Easing odds up",
+          "score": 1
+        }
+      ]
+    }
+  ],
+  "etf": [
+    {
+      "kind": "etf",
+      "symbol": "BTC",
+      "score": 2,
+      "confidence": "high",
+      "label": "Strong inflows",
+      "reasons": [
+        "Latest day (2026-11-12) net inflow of $912.0M is 5.1 standard deviations above the prior 20-day average: unusually strong.",
+        "Last 5 trading days: $2.09B net.",
+        "5 inflow days in a row.",
+        "That day moved 0.63% of total ETF assets."
+      ],
+      "facts": {
+        "lastDate": "2026-11-12",
+        "lastFlow": 912000000,
+        "z": 5.06,
+        "sum5": 2086225883,
+        "streak": 5,
+        "flowPctAssets": 0.6308422969641929,
+        "days": 31
+      }
+    },
+    {
+      "kind": "etf",
+      "symbol": "ETH",
+      "score": -1,
+      "confidence": "high",
+      "label": "Leaning outflows",
+      "reasons": [
+        "Latest day (2026-11-12) net outflow of $238.0M is 5.8 standard deviations below the prior 20-day average: unusually weak.",
+        "Last 5 trading days: -$206.1M net.",
+        "That day moved -1.05% of total ETF assets."
+      ],
+      "facts": {
+        "lastDate": "2026-11-12",
+        "lastFlow": -238000000,
+        "z": -5.8,
+        "sum5": -206147299,
+        "streak": -2,
+        "flowPctAssets": -1.049128873952415,
+        "days": 31
+      }
+    },
+    {
+      "kind": "etf",
+      "symbol": "SOL",
+      "score": 0,
+      "confidence": "medium",
+      "label": "Neutral flows",
+      "reasons": [
+        "Latest day (2026-11-12) net inflow of $4.0M, within the normal range (z = 0.4).",
+        "Last 5 trading days: $11.3M net."
+      ],
+      "facts": {
+        "lastDate": "2026-11-12",
+        "lastFlow": 4000000,
+        "z": 0.4,
+        "sum5": 11348932,
+        "streak": 1,
+        "flowPctAssets": 0.3216587095619657,
+        "days": 31
+      }
+    },
+    {
+      "kind": "etf",
+      "symbol": "XRP",
+      "score": 0,
+      "confidence": "medium",
+      "label": "Neutral flows",
+      "reasons": [
+        "Latest day (2026-11-12) net inflow of $1.0M, within the normal range (z = 0.0).",
+        "Last 5 trading days: $4.4M net."
+      ],
+      "facts": {
+        "lastDate": "2026-11-12",
+        "lastFlow": 1000000,
+        "z": 0.03,
+        "sum5": 4423928,
+        "streak": 2,
+        "flowPctAssets": 0.16099039047232339,
+        "days": 31
+      }
+    }
+  ],
+  "fomc": {
+    "kind": "fomc",
+    "score": 1,
+    "confidence": "medium",
+    "label": "Easing odds up",
+    "reasons": [
+      "Market-implied target rate for the 2026-12-09 FOMC meeting: 3.66%.",
+      "Since the last run, expectations moved toward more easing by 5.7 basis points."
+    ],
+    "facts": {
+      "meeting": "2026-12-09",
+      "expectedBps": 365.5,
+      "deltaBps": -5.7
+    }
+  },
+  "treasury": {
+    "kind": "treasury",
+    "symbol": "BTC",
+    "score": 1,
+    "confidence": "medium",
+    "label": "Corporate buying",
+    "reasons": [
+      "2 tracked companies (MSTR, MARA) bought 5,100 BTC for $511.0M in the last 7 days."
+    ],
+    "facts": {
+      "btc": 5100,
+      "usd": 511000000,
+      "buyers": [
+        "MSTR",
+        "MARA"
+      ]
+    }
+  },
+  "attention": {
+    "counts": {
+      "BTC": 1,
+      "ETH": 1,
+      "SOL": 1,
+      "XRP": 0
+    },
+    "headlines": {
+      "BTC": [
+        {
+          "title": "Sample: BTC spot ETFs log their largest inflow day this month",
+          "link": "https://sosovalue.com/",
+          "time": 1794590000000
+        }
+      ],
+      "ETH": [
+        {
+          "title": "Sample: ETH ETFs see a second day of redemptions",
+          "link": "https://sosovalue.com/",
+          "time": 1794580000000
+        }
+      ],
+      "SOL": [
+        {
+          "title": "Sample: SOL ETF volumes stay muted",
+          "link": "https://sosovalue.com/",
+          "time": 1794560000000
+        }
+      ],
+      "XRP": []
+    }
+  },
+  "risks": [
+    "SAMPLE DATA: this brief was built from example data, not live SoSoValue data.",
+    "Signals describe flows and expectations, not prices. They are not investment advice."
+  ],
+  "method": {
+    "weights": {
+      "etf": 1,
+      "fomc": 0.5,
+      "treasury": 0.5
+    },
+    "etfZ": "latest day vs prior 20 trading days",
+    "streak": "3+ same-sign days add 1 point",
+    "fomcThresholdBps": 5,
+    "treasuryThresholdBtc": 5000
+  },
+  "ai": {
+    "text": null,
+    "note": "model error: Unexpected token 'O', \"OK\r\n\" is not valid JSON"
+  },
+  "sourceErrors": [],
+  "generatedAt": "2026-11-13T05:09:38.912Z",
+  "raw": {
+    "fomc": {
+      "rate_ranges": [
+        "300-325",
+        "325-350",
+        "350-375",
+        "375-400",
+        "400-425"
+      ],
+      "meetings": [
+        {
+          "meeting_date": "2026-12-09",
+          "probabilities": [
+            "0.0",
+            "12.4",
+            "63.1",
+            "24.5",
+            "0.0"
+          ]
+        },
+        {
+          "meeting_date": "2027-01-27",
+          "probabilities": [
+            "8.2",
+            "41.0",
+            "40.3",
+            "10.5",
+            "0.0"
+          ]
+        }
+      ],
+      "as_of": 1794600000000
+    }
+  }
+}
