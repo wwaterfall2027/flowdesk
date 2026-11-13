@@ -21,7 +21,7 @@ function render(b) {
 
   $('#aiCard').innerHTML = b.ai?.text
     ? `<div class="muted small">Desk summary (AI-written, number-checked)</div><p style="margin:6px 0 0">${esc(b.ai.text)}</p>`
-    : `<div class="muted small">Desk summary</div><p style="margin:6px 0 0">${esc(b.views.map((v) => `${v.symbol} ${v.stance.toLowerCase()} (${v.score > 0 ? '+' : ''}${v.score})`).join(' · '))}.</p><p class="small muted" style="margin:6px 0 0">AI summary: ${esc(b.ai?.note || 'not run')}</p>`;
+    : `<div class="muted small">Desk summary</div><p style="margin:6px 0 0">${esc(b.views.map((v) => `${v.symbol} ${v.stance.toLowerCase()} (${v.score > 0 ? '+' : ''}${v.score})`).join(' · '))}.</p><p class="small muted" style="margin:6px 0 0" title="${esc(b.ai?.note || '')}">${/^rejected/.test(b.ai?.note || '') ? 'The AI summary was rejected today because it contained a number not in the data, so the rule-based summary is shown.' : 'Rule-based summary (the AI summary was unavailable for this brief).'}</p>`;
 
   $('#views').innerHTML = b.views.map((v) => `
     <div class="card view">
