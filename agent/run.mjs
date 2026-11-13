@@ -81,7 +81,7 @@ async function aiBrief(brief) {
     const bodyText = await res.text();
     if (!res.ok) return { text: null, note: `model HTTP ${res.status}: ${bodyText.slice(0, 120)}` };
     let parsed;
-    try { parsed = JSON.parse(bodyText); } catch { return { text: null, note: `model returned non-JSON (HTTP ${res.status}): ${bodyText.slice(0, 80)}` }; }
+    try { parsed = JSON.parse(bodyText); } catch { return { text: null, note: `model returned non-JSON (HTTP ${res.status}, ${res.headers.get('content-type')}, final URL ${res.url}, redirected ${res.redirected}): ${bodyText.slice(0, 80)}` }; }
     const text = parsed?.choices?.[0]?.message?.content?.trim();
     if (!text) return { text: null, note: 'empty model reply' };
     const g = groundedNumbers(text, facts);
