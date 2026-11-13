@@ -68,7 +68,7 @@ async function aiBrief(brief) {
   try {
     const res = await fetch('https://models.github.ai/inference/chat/completions', {
       method: 'POST',
-      headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json', accept: 'application/json' },
+      headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json', accept: 'application/vnd.github+json', 'x-github-api-version': '2022-11-28' },
       body: JSON.stringify({
         model: process.env.FLOWDESK_MODEL || 'openai/gpt-4.1-mini',
         temperature: 0.2,
@@ -78,8 +78,11 @@ async function aiBrief(brief) {
         ],
       }),
     });
-    if (!res.ok) return { text: null, note: `model HTTP ${res.status}` };
-    const text = (await res.json())?.choices?.[0]?.message?.content?.trim();
+    const bodyText = await res.text();
+    if (!res.ok) return { text: null, note: `model HTTP ${res.status}: ${bodyText.slice(0, 120)}` };
+    let parsed;
+    try { parsed = JSON.parse(bodyText); } catch { return { text: null, note: `model returned non-JSON (HTTP ${res.status}): ${bodyText.slice(0, 80)}` }; }
+    const text = parsed?.choices?.[0]?.message?.content?.trim();
     if (!text) return { text: null, note: 'empty model reply' };
     const g = groundedNumbers(text, facts);
     return g.ok ? { text, note: 'checked: every number appears in the data' } : { text: null, note: `rejected: unsupported numbers ${g.extra.join(', ')}` };
