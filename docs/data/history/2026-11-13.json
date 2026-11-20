@@ -256,7 +256,7 @@
     "note": "model returned non-JSON (HTTP 200, text/plain, final URL https://models.github.ai/inference/chat/completions, redirected false): OK\r\n"
   },
   "sourceErrors": [],
-  "generatedAt": "2026-11-19T03:23:57.889Z",
+  "generatedAt": "2026-11-20T03:16:06.324Z",
   "raw": {
     "fomc": {
       "rate_ranges": [
